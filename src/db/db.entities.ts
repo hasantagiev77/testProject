@@ -78,10 +78,10 @@ class Cashier
 	{
 		try
 		{
-			const cashier = await db.query( 'SELECT * FROM public.cashier' );
+			const cashiers = await db.query( 'SELECT * FROM public.cashier' );
 
 			// success
-			res.send( cashier );
+			res.send( cashiers );
 		} catch ( e )
 		{
 			res.send( e );
@@ -115,6 +115,26 @@ class Cashier
 		{
 			res.send( e );
 		}
+	}
+
+	async getTargetCashiers1( req: any, res: any )
+	{
+		const cashiers = await db.query( `SELECT c.id, c.store_id, c.name, c.surname, c.age, c.sex, c.yearsofexperience, c.worksinshifts, c.previousworkcompany, c.cashmachineno
+			FROM public.cashier c
+			LEFT JOIN public.store s on c.store_id = s.id
+			WHERE s.name = 'ATB-Market' and s.city = 'Lviv' and c.yearsofexperience > 5 and c.previousworkcompany in ( 'Silpo', 'Arsen' )`);
+		console.log( cashiers );
+		res.send( cashiers );
+	}
+	async getTargetCashiers2( req: any, res: any )
+	{
+		const cashiers = await db.query( `SELECT c.id, c.store_id, c.name, c.surname, c.age, c.sex, c.yearsofexperience, c.worksinshifts, c.previousworkcompany, c.cashmachineno
+			FROM public.cashier c
+			LEFT JOIN public.store s on c.store_id = s.id
+			WHERE s.name = 'ATB-Market' and s.city = 'Lviv' and s.address = 'Shevchenka St, 100' and c.worksinshifts -> 'days' -> 0 ->> 'begin' = '23:00' and c.worksinshifts -> 'days' -> 0 ->> 'end' = '07:00'` );
+
+		console.log( cashiers );
+		res.send( cashiers );
 	}
 }
 
