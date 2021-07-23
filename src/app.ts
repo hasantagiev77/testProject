@@ -5,10 +5,16 @@ const port = 8080; // default port to listen
 
 // define a route handler for the default home page
 
-app.get( '/storeCreate', entities.store.create );
-app.get( '/storeRead', entities.store.read );
-app.get( '/storeUpdate', entities.store.update );
-app.get( '/storeDelete', entities.store.delete );
+app.get( '/storeCreate', entities.Store.create );
+app.get( '/storeRead', entities.Store.read );
+app.get( '/storeUpdate', entities.Store.update );
+app.get( '/storeDelete', entities.Store.delete );
+
+app.get( '/cashierCreate', entities.Cashier.create );
+app.get( '/cashierRead', entities.Cashier.read );
+app.get( '/cashierUpdate', entities.Cashier.update );
+app.get( '/cashierDelete', entities.Cashier.delete );
+
 app.get( "/", ( req: any, res: { send: ( arg0: string ) => void; } ) => {
 	res.send( "Hello world!" );
 } );

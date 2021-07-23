@@ -22,8 +22,15 @@ export interface CashierInterface
 	sex?: Sex,
 	yearsOfExperience: number,
 	worksInShifts: {
-		start: string,
-		end: string;
+		days: [
+			{ begin: string, end: string; },
+			{ begin: string, end: string; },
+			{ begin: string, end: string; },
+			{ begin: string, end: string; },
+			{ begin: string, end: string; },
+			{ begin: string, end: string; },
+			{ begin: string, end: string; }
+		]
 	},
 	previousWorkCompany: string,
 	cashMachineNo: number;
