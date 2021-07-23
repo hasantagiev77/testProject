@@ -1,3 +1,9 @@
+#Postgres data sync
+/db-data/*
+
+# Environmental variables
+/.env
+
 # Logs
 logs
 *.log
