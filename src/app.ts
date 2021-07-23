@@ -17,6 +17,7 @@ app.get( '/cashierDelete', entities.Cashier.delete );
 
 app.get( '/getTargetCashiers1', entities.Cashier.getTargetCashiers1 );
 app.get( '/getTargetCashiers2', entities.Cashier.getTargetCashiers2 );
+app.get( '/getAllCashiers', entities.Store.read );
 
 app.get( "/", ( req: any, res: { send: ( arg0: string ) => void; } ) => {
 	res.send( "Hello world!" );
