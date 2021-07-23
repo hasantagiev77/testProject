@@ -13,17 +13,17 @@ services:
     restart: always
     networks:
       - db
-  backend:
-    container_name: testProject_backend
-    build:
-      context: .
-      dockerfile: dockerfile
-    env_file:
-      .env
-    depends_on: 
-      - database
-    networks:
-      - db
+  # backend:
+  #   container_name: testProject_backend
+  #   build:
+  #     context: .
+  #     dockerfile: dockerfile
+  #   env_file:
+  #     .env
+  #   depends_on: 
+  #     - database
+  #   networks:
+  #     - db
 volumes:
   db-data:
 networks:
