@@ -11,9 +11,9 @@ POSTGRES_PORT=5432
 and rename file from ".env.template" to ".env"
 ## To start the project(build version):
 ```
-docker-compose up
+docker-compose up -d
 ```
-## Run project on local (development version):
+## Run project on local (for development version):
 To run database:
 ```
 docker-compose run -d database
