@@ -1,5 +1,14 @@
 # TestProject
 
+First fill ".env.template" file with values f.e:
+```
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+POSTGRES_HOST=testProject_db #Do not edit!
+POSTGRES_PORT=5432
+```
+and rename file from ".env.template" to ".env"
 ## To start the project(build version):
 ```
 docker-compose up
